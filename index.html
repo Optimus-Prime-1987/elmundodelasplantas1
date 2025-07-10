@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mundo de las Plantas que nos provee la naturaleza</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-oscuro: #2c3e50;
+            --verde-medio: #27ae60;
+            --verde-claro: #2ecc71;
+            --hoja-verde: #16a085;
+            --rojo-planta: #e74c3c;
+            --amarillo-planta: #f1c40f;
+            --morado-planta: #9b59b6;
+            --blanco: white;
+            --naranja-planta: #e67e22;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(-45deg, #f5f7fa, #e4f1fe, #c8f7c5, #eaf7ea);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #333;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            border: none;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--verde-medio) !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--verde-oscuro) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+        
+        .hero-section {
+            background: url('https://www.floristeriamorris.com/wp-content/uploads/etapas-de-crecimiento-de-las-plantas.jpg') no-repeat center center;
+            background-size: cover;
+            height: 180vh;
+            position: relative;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        .color-box {
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            margin-right: 8px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            vertical-align: middle;
+        }
+        
+        .planta-icon {
+            font-size: 2rem;
+            color: var(--verde-medio);
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .btn-planta {
+            background-color: var(--verde-medio);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-planta:hover {
+            background-color: var(--verde-claro);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            color: var(--verde-oscuro);
+            font-size: 2.5rem;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--verde-medio);
+            border-radius: 2px;
+        }
+        
+        .planta-card-header {
+            background: linear-gradient(to right, var(--verde-medio), var(--hoja-verde));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--morado-planta);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--verde-medio);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--morado-planta);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--morado-planta);
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--morado-planta);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--morado-planta) transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cultivo-step {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--verde-medio);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .variety-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .badge-medicinal {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+        
+        .badge-comestible {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .badge-ambos {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid var(--morado-planta);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--morado-planta) transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-leaf me-2"></i>Plantas Medicinales y Comestibles
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#medicinales">Medicinales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comestibles">Comestibles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#historia">Historia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cultivo">Cultivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-center">
+            <h1 class="display-3 fw-bold mb-4">El Poder de las Plantas</h1>
+            <p class="lead mb-5"> Bienvenidos a El Poder de las Plantas, un espacio dedicado a rescatar y difundir el conocimiento ancestral y científico sobre las plantas medicinales y comestibles. En un mundo donde la conexión con la naturaleza es cada vez más esencial, nuestro propósito es brindar información confiable y práctica para integrar estos valiosos recursos en la vida cotidiana, promoviendo el bienestar físico, emocional y ambiental.</p> 
+            <p class="lead mb-5"> Nuestros objetivos son: educar sobre los usos, beneficios y preparaciones seguras de plantas medicinales y comestibles, respaldando su valor terapéutico y nutricional con fundamentos científicos y tradicionales, así como fomentar un estilo de vida sostenible, incentivando el cultivo responsable y el consumo consciente de plantas, en armonía con el medio ambiente.</p>
+            <p class="lead mb-5"> Explora con nosotros el fascinante mundo botánico y descubre cómo la naturaleza puede ser tu mejor aliada para una vida más saludable y equilibrada.</p>
+            <p class="lead mb-5"> Descubre la sabiduría ancestral y los beneficios de las plantas medicinales y comestibles</p>
+            <a href="#medicinales" class="btn btn-planta btn-lg">Explorar Plantas</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section class="my-5 py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Plantas medicinales" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Nuestro Propósito</h2>
+                    <p class="lead">Este sitio web nace con el objetivo de rescatar y difundir el conocimiento ancestral sobre las plantas medicinales y comestibles, promoviendo su uso responsable y sostenible.</p>
+                    <p>En un mundo donde la medicina moderna y los alimentos procesados dominan, queremos recordar la sabiduría tradicional que durante milenios ha utilizado las plantas para curar enfermedades y alimentar a la humanidad.</p>
+                    <p>Nuestra misión es:</p>
+                    <ul>
+                        <li>Preservar el conocimiento tradicional sobre plantas medicinales</li>
+                        <li>Promover el autocuidado responsable de la salud</li>
+                        <li>Fomentar el consumo de plantas comestibles nutritivas</li>
+                        <li>Educar sobre cultivo sostenible de plantas útiles</li>
+                        <li>Conectar a las personas con la naturaleza a través de las plantas</li>
+                    </ul>
+                    <p>Creemos que el conocimiento sobre las plantas debe ser accesible a todos, respetando siempre las tradiciones culturales y el medio ambiente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medicinales Section -->
+        <section id="medicinales" class="my-5 py-5">
+            <h2 class="section-title text-center">Plantas Medicinales</h2>
+            <p class="text-center mb-5">Conoce algunas plantas con propiedades curativas que han sido utilizadas tradicionalmente en la medicina natural.</p>
+            
+            <div class="row">
+                <!-- Planta 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>1. Manzanilla</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://herbario.istmas.edu.ec/wp-content/uploads/2022/05/MANZANILLA.jpg" class="card-img-top" alt="Manzanilla">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Matricaria chamomilla</p>
+                            <p><strong>Propiedades:</strong> Antiinflamatoria, digestiva, calmante, antiespasmódica</p>
+                            <p><strong>Usos tradicionales:</strong> Infusión para problemas digestivos, ansiedad e insomnio. Compresas para irritaciones oculares y piel inflamada.</p>
+                            <p><strong>Precauciones:</strong> Puede causar alergias en personas sensibles a plantas de la familia Asteraceae.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>2. Aloe Vera</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2022/04/19/aloe-vera.r_d.1035-860.jpeg" class="card-img-top" alt="Aloe Vera">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Aloe barbadensis miller</p>
+                            <p><strong>Propiedades:</strong> Cicatrizante, antiinflamatoria, hidratante, antibacteriana</p>
+                            <p><strong>Usos tradicionales:</strong> Gel para quemaduras, heridas y problemas de piel. Jugo para problemas digestivos (con precaución).</p>
+                            <p><strong>Precauciones:</strong> El látex amarillo (aloína) puede ser tóxico si se consume en exceso.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>3. Menta</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://m.media-amazon.com/images/I/71mn7IPxV2L._UF894,1000_QL80_.jpg" class="card-img-top" alt="Menta">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Mentha piperita</p>
+                            <p><strong>Propiedades:</strong> Digestiva, analgésica, descongestionante, antiséptica</p>
+                            <p><strong>Usos tradicionales:</strong> Infusión para problemas digestivos y respiratorios. Aceite esencial para dolores musculares y cefaleas.</p>
+                            <p><strong>Precauciones:</strong> No recomendada para niños pequeños ni personas con reflujo gastroesofágico severo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>4. Echinacea</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://www.veseys.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/d/w/dwarfparadisomixconeflower-dwarfparadisomixconeflower-image-27460%20dwarf%20paradiso%20mix.jpg" class="card-img-top" alt="Echinacea">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Echinacea purpurea</p>
+                            <p><strong>Propiedades:</strong> Inmunoestimulante, antiviral, antiinflamatoria</p>
+                            <p><strong>Usos tradicionales:</strong> Prevención y tratamiento de resfriados e infecciones respiratorias. Uso tópico para heridas.</p>
+                            <p><strong>Precauciones:</strong> No usar de forma continua por más de 8 semanas. Contraindicada en enfermedades autoinmunes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>5. Valeriana</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://cdn0.ecologiaverde.com/es/posts/5/2/9/como_tomar_valeriana_4925_2_600.jpg" class="card-img-top" alt="Valeriana">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Valeriana officinalis</p>
+                            <p><strong>Propiedades:</strong> Sedante, ansiolítica, relajante muscular</p>
+                            <p><strong>Usos tradicionales:</strong> Tratamiento de insomnio, ansiedad y estrés. Alivio de dolores musculares leves.</p>
+                            <p><strong>Precauciones:</strong> Puede causar somnolencia. No combinar con alcohol u otros sedantes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>6. Diente de León</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://content.cuerpomente.com/medio/2023/05/30/diente-de-leon-propiedades-beneficios-contraindicaciones-e-infusiones_00000000_25f5abab_230530145331_1280x720.jpg" class="card-img-top" alt="Diente de León">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Taraxacum officinale</p>
+                            <p><strong>Propiedades:</strong> Diurético, depurativo, digestivo, hepatoprotector</p>
+                            <p><strong>Usos tradicionales:</strong> Infusión para problemas hepáticos y retención de líquidos. Hojas jóvenes en ensaladas.</p>
+                            <p><strong>Precauciones:</strong> Contraindicado en obstrucción de vías biliares. Puede interactuar con diuréticos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Segunda fila de plantas medicinales -->
+            <div class="row mt-4">
+                <!-- Planta 7 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>7. Romero</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://cdnx.jumpseller.com/eco-tienda-pewen/image/38217539/propiedades_del_romero_para_que_sirve_y_como_prepararlo_3293_orig.jpeg?1701743887" class="card-img-top" alt="Romero">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Rosmarinus officinalis</p>
+                            <p><strong>Propiedades:</strong> Antioxidante, antiinflamatorio, estimulante circulatorio, digestivo</p>
+                            <p><strong>Usos tradicionales:</strong> Mejora la memoria y concentración. Alivia dolores musculares. Condimento culinario.</p>
+                            <p><strong>Precauciones:</strong> Evitar en embarazo y epilepsia. No usar aceite esencial puro sobre la piel.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 8 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>8. Caléndula</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://sembramos.com.co/wp-content/uploads/2022/12/calendula-planta-pixabay-1200x800.jpg" class="card-img-top" alt="Caléndula">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Calendula officinalis</p>
+                            <p><strong>Propiedades:</strong> Cicatrizante, antiinflamatoria, antiséptica, emoliente</p>
+                            <p><strong>Usos tradicionales:</strong> Cremas y ungüentos para heridas, quemaduras y problemas de piel. Infusión para problemas digestivos.</p>
+                            <p><strong>Precauciones:</strong> Puede causar alergias en personas sensibles a las Asteráceas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 9 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>9. Ginseng</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://www.news-medical.net/image-handler/picture/2019/5/shutterstock_734716603.jpg" class="card-img-top" alt="Ginseng">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Panax ginseng</p>
+                            <p><strong>Propiedades:</strong> Adaptógeno, energizante, estimulante inmunológico</p>
+                            <p><strong>Usos tradicionales:</strong> Aumenta la resistencia al estrés y la fatiga. Mejora la concentración y memoria.</p>
+                            <p><strong>Precauciones:</strong> No usar en hipertensión no controlada. Puede interferir con anticoagulantes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 10 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>10. Lavanda</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/1683-lavanda-pianta-aromatica-in-vaso-per-cucina.jpeg?1692365901" class="card-img-top" alt="Lavanda">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Lavandula angustifolia</p>
+                            <p><strong>Propiedades:</strong> Calmante, antidepresiva, antiséptica, cicatrizante</p>
+                            <p><strong>Usos tradicionales:</strong> Aceite esencial para ansiedad e insomnio. Infusión para problemas digestivos. Uso tópico para quemaduras leves.</p>
+                            <p><strong>Precauciones:</strong> El aceite esencial puro puede ser irritante para pieles sensibles.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 11 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>11. Jengibre</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://teashop.com/cdn/shop/articles/jenjibre-1.png?v=1727705540&width=2048" class="card-img-top" alt="Jengibre">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Zingiber officinale</p>
+                            <p><strong>Propiedades:</strong> Antiinflamatorio, digestivo, antiemético, antioxidante</p>
+                            <p><strong>Usos tradicionales:</strong> Náuseas y vómitos. Dolor e inflamación. Condimento culinario. Infusión para resfriados.</p>
+                            <p><strong>Precauciones:</strong> Puede interferir con anticoagulantes. Usar con precaución en embarazo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 12 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>12. Ajo</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://dfinnova.com/wp-content/themes/yootheme/cache/fe/shelley-pauls-MSJMH0zW64c-unsplash_opt-fec41bf0.jpeg" class="card-img-top" alt="Ajo">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Allium sativum</p>
+                            <p><strong>Propiedades:</strong> Antibiótico, hipotensor, hipocolesterolemiante, antioxidante</p>
+                            <p><strong>Usos tradicionales:</strong> Prevención de infecciones. Salud cardiovascular. Condimento culinario universal.</p>
+                            <p><strong>Precauciones:</strong> Puede interferir con anticoagulantes. Puede causar acidez estomacal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tercera fila de plantas medicinales -->
+            <div class="row mt-4">
+                <!-- Planta 13 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>13. Tomillo</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal y comestible</span>
+                        </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzYapqUUFPCTKVTpoO08O5K6j1us-8oLowNQ&s" class="card-img-top" alt="Tomillo">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Thymus</p>
+                            <p><strong>Propiedades:</strong> Efectos antibacterianos, antifúngicos y antioxidantes.</p>
+                            <p><strong>Usos tradicionales:</strong> Trata enfermedades respiratorias, como tos y resfriados, tambien se utiliza en enjuagues bucales debido a sus propiedades antisépticas, y en la cosina es utilizado para contimentar carnes, pescado, sopas, guisos y salsas </p>
+                            <p><strong>Precauciones:</strong> Se rocomienda evitar el uso en personas con problemas cardíacos, mujeres embarazadas o en periodo de lactancia, niños menores de dos años y personas con hipersibilidad al tomillo o en reabilitación de alcoholismos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 14 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>14. Hierbabuena</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://cdn.recetasderechupete.com/wp-content/uploads/2025/04/HIERBABUENA-2-1.jpg" class="card-img-top" alt="Hierbabuena">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Mentha spicata</p>
+                            <p><strong>Propiedades:</strong> Digestiva, carminativa, antiespasmódica, antiséptica</p>
+                            <p><strong>Usos tradicionales:</strong> Alivia problemas digestivos, náuseas y dolores de cabeza. Aromatizante en cocina y cócteles.</p>
+                            <p><strong>Precauciones:</strong> No recomendada para niños pequeños ni personas con reflujo gastroesofágico severo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 15 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>15. Uña de Gato</h3>
+                            <span class="variety-badge badge-medicinal">Medicinal</span>
+                        </div>
+                        <img src="https://lh5.googleusercontent.com/proxy/LryqRIQS2IgnC5RSzKduqw8tkMYjVeBTGvfiowP4-xAAHbdMdqIIQl4_9Syuu4QRa9x5_8zJC0k7_PRP3ATSknvl0OEw-ft71Vqvk76pVVx5dPcPYoX_-KY_k7dX8eixMQ" class="card-img-top" alt="Uña de Gato">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Uncaria tomentosa</p>
+                            <p><strong>Propiedades:</strong> Inmunoestimulante, antiinflamatoria, antiviral</p>
+                            <p><strong>Usos tradicionales:</strong> Tratamiento de artritis, infecciones virales y apoyo inmunológico en tratamientos contra el cáncer.</p>
+                            <p><strong>Precauciones:</strong> Contraindicada en embarazo, lactancia y enfermedades autoinmunes. Puede interactuar con medicamentos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nota sobre más plantas -->
+            <div class="text-center mt-4">
+                <p>...</p>
+            </div>
+        </section>
+
+        <!-- Comestibles Section -->
+        <section id="comestibles" class="my-5 py-5">
+            <h2 class="section-title text-center">Plantas Comestibles</h2>
+            <p class="text-center mb-5">Conoce algunas plantas nutritivas que puedes incorporar a tu alimentación diaria, muchas con propiedades medicinales adicionales.</p>
+            
+            <div class="row">
+                <!-- Planta 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>1. Espinaca</h3>
+                            <span class="variety-badge badge-comestible">Comestible</span>
+                        </div>
+                        <img src="https://www.conasi.eu/blog/wp-content/uploads/2023/07/recetas-con-espinacas-d.jpg" class="card-img-top" alt="Espinaca">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Spinacia oleracea</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rica en hierro, calcio, vitaminas A, C y K, ácido fólico y antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, sopas, guisos, batidos verdes. Se consume cruda o cocida.</p>
+                            <p><strong>Beneficios salud:</strong> Mejora la salud ocular, fortalece huesos, ayuda a prevenir anemia.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>2. Kale</h3>
+                            <span class="variety-badge badge-comestible">Comestible</span>
+                        </div>
+                        <img src="https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/seasonal-produce/2018-05/kale.jpg.webp?itok=qi9LPOCN" class="card-img-top" alt="Kale">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Brassica oleracea var. sabellica</p>
+                            <p><strong>Propiedades nutricionales:</strong> Alto contenido en vitaminas A, C, K, calcio, hierro y antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Chips horneados, ensaladas, batidos, salteados, sopas.</p>
+                            <p><strong>Beneficios salud:</strong> Desintoxicante, antiinflamatorio, protege contra el cáncer, fortalece sistema inmunológico.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>3. Albahaca</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.fecoagro.com.ar/wp-content/uploads/2017/02/ALBAHACA.jpg" class="card-img-top" alt="Albahaca">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Ocimum basilicum</p>
+                            <p><strong>Propiedades nutricionales:</strong> Fuente de vitamina K, manganeso, hierro, vitamina A y antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Pesto, ensaladas, pastas, pizzas, infusiones, platos tailandeses.</p>
+                            <p><strong>Beneficios salud:</strong> Antiinflamatoria, digestiva, antibacteriana, reduce el estrés.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>4. Berro</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://panamagili.com/wp-content/uploads/2024/10/Berro-%C2%BFPara-que-sirve1.jpg" class="card-img-top" alt="Berro">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Nasturtium officinale</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rico en vitamina K, C, A, calcio, antioxidantes y compuestos azufrados.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, sopas, sándwiches, jugos verdes, guarniciones.</p>
+                            <p><strong>Beneficios salud:</strong> Desintoxicante, protege contra el cáncer, mejora salud ósea y ocular.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>5. Perejil</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.hola.com/horizon/landscape/d50346c8b39b-perejil-p-t.jpg?im=Resize=(1200)" class="card-img-top" alt="Perejil">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Petroselinum crispum</p>
+                            <p><strong>Propiedades nutricionales:</strong> Excelente fuente de vitamina K, C, A, hierro y antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Aderezo universal, ensaladas, salsas, jugos, guisos, marinados.</p>
+                            <p><strong>Beneficios salud:</strong> Diurético, desintoxicante, fortalece huesos, mejora la digestión.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>6. Acelga</h3>
+                            <span class="variety-badge badge-comestible">Comestible</span>
+                        </div>
+                        <img src="https://www.tierraverde.com.ec/54-large_default/tomate.jpg" class="card-img-top" alt="Acelga">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Beta vulgaris var. cicla</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rica en vitaminas A, C, K, magnesio, potasio, hierro y fibra.</p>
+                            <p><strong>Usos culinarios:</strong> Salteados, sopas, tartas, ensaladas (hojas jóvenes), rellenos.</p>
+                            <p><strong>Beneficios salud:</strong> Regula presión arterial, mejora digestión, protege vista, antiinflamatoria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Segunda fila de plantas comestibles -->
+            <div class="row mt-4">
+                <!-- Planta 7 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>7. Rúcula</h3>
+                            <span class="variety-badge badge-comestible">Comestible</span>
+                        </div>
+                        <img src="https://mejorconsalud.as.com/wp-content/uploads/2013/05/rucula.jpg" class="card-img-top" alt="Rúcula">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Eruca vesicaria</p>
+                            <p><strong>Propiedades nutricionales:</strong> Alta en vitaminas A, C, K, calcio, folato y compuestos azufrados.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, pizzas, pastas, pesto, acompañamiento de carnes.</p>
+                            <p><strong>Beneficios salud:</strong> Digestiva, desintoxicante, protege contra cáncer, mejora salud ósea.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 8 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>8. Cilantro</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://drearth.com/wp-content/uploads/Cilantro-iStock-1133790325.jpg" class="card-img-top" alt="Cilantro">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Coriandrum sativum</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rico en vitaminas A, C, K, hierro, manganeso y antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Salsas, guacamole, curry, sopas, marinados, platos mexicanos y asiáticos.</p>
+                            <p><strong>Beneficios salud:</strong> Desintoxicante de metales pesados, digestivo, antibacteriano, antiinflamatorio.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 9 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>9. Hinojo</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.jornadaonline.com/files/image/102/102216/6813398231b25_992_558!.jpg?s=4e8b0e736bfa7458239323e9b68a09d2&d=1746203046" class="card-img-top" alt="Hinojo">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Foeniculum vulgare</p>
+                            <p><strong>Propiedades nutricionales:</strong> Buena fuente de vitamina C, fibra, potasio y compuestos antioxidantes.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, sopas, platos de pescado, infusiones, como verdura o especia.</p>
+                            <p><strong>Beneficios salud:</strong> Digestivo, carminativo, expectorante, estimulante de la leche materna.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 10 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>10. Orégano</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.trees.com/wp-content/uploads/products/medium/1000/Greek-Oregano.webp" class="card-img-top" alt="Orégano">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Origanum vulgare</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rico en antioxidantes, vitamina K, manganeso, hierro y calcio.</p>
+                            <p><strong>Usos culinarios:</strong> Pizzas, pastas, salsas, adobos, marinados, platos mediterráneos.</p>
+                            <p><strong>Beneficios salud:</strong> Antibacteriano, antiinflamatorio, digestivo, expectorante, antioxidante potente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 11 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>11. Canónigos</h3>
+                            <span class="variety-badge badge-comestible">Comestible</span>
+                        </div>
+                        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Canónigos">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Valerianella locusta</p>
+                            <p><strong>Propiedades nutricionales:</strong> Alta en vitamina C, betacaroteno, hierro, ácido fólico y omega-3.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, acompañamiento de platos principales, decoración.</p>
+                            <p><strong>Beneficios salud:</strong> Depurativa, digestiva, fortalece sistema inmunológico, mejora salud ocular.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 12 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>12. Mostaza</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.nativeseeds.org/cdn/shop/products/Mostaza-Roja-Mustard-Mequasare-Blossoms_1445x.jpg?v=1619568198" class="card-img-top" alt="Mostaza">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Brassica juncea</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rica en vitaminas A, C, K, calcio, hierro y compuestos azufrados.</p>
+                            <p><strong>Usos culinarios:</strong> Hojas en ensaladas o cocidas, semillas para condimento y mostaza.</p>
+                            <p><strong>Beneficios salud:</strong> Desintoxicante, antiinflamatoria, estimula digestión, protege contra cáncer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tercera fila de plantas comestibles -->
+            <div class="row mt-4">
+                <!-- Planta 13 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>13. Borraja</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://www.5aldia.es/es/wp-content/uploads/2017/09/h17g.jpg" class="card-img-top" alt="Borraja">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Borago officinalis</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rica en ácidos grasos omega-6, vitamina C, calcio y potasio.</p>
+                            <p><strong>Usos culinarios:</strong> Hojas en ensaladas o cocidas, flores para decoración de platos.</p>
+                            <p><strong>Beneficios salud:</strong> Antiinflamatoria, diurética, mejora salud de piel, alivia síntomas de menopausia.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 14 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>14. Verdolaga</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://caracol.com.co/resizer/v2/FK3DB6233RBILLS4EFY5LZDSVY.jpg?auth=8c6e218fbf0bc6b66dafbbd5f68867d45fd87814932cdd299ab902ea572289fd&width=650&height=488&quality=70&smart=true" class="card-img-top" alt="Verdolaga">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Portulaca oleracea</p>
+                            <p><strong>Propiedades nutricionales:</strong> Alta en omega-3, vitaminas A, C, E, magnesio, calcio y potasio.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, sopas, guisos, salteados, encurtidos.</p>
+                            <p><strong>Beneficios salud:</strong> Antiinflamatoria, cardioprotectora, mejora salud ocular, fortalece huesos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planta 15 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="planta-card-header">
+                            <i class="fas fa-leaf planta-icon"></i>
+                            <h3>15. Acedera</h3>
+                            <span class="variety-badge badge-ambos">Medicinal y Comestible</span>
+                        </div>
+                        <img src="https://media.istockphoto.com/id/498525209/es/foto/alaz%C3%A1n-com%C3%BAn-en-un-plato-reci%C3%A9n.jpg?s=612x612&w=0&k=20&c=Cv2SmBrzdrUdGdX_cZJA0tKP_7b55ccu4HDSzKnUCaQ=" class="card-img-top" alt="Acedera">
+                        <div class="card-body">
+                            <p><strong>Nombre científico:</strong> Rumex acetosa</p>
+                            <p><strong>Propiedades nutricionales:</strong> Rica en vitaminas A, C, hierro, magnesio y potasio.</p>
+                            <p><strong>Usos culinarios:</strong> Ensaladas, sopas, salsas, acompañamiento de pescados.</p>
+                            <p><strong>Beneficios salud:</strong> Digestiva, depurativa, diurética, estimulante del apetito.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nota sobre más plantas -->
+            <div class="text-center mt-4">
+                <p>...</p>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="historia" class="my-5 py-5">
+            <h2 class="section-title text-center">Historia y Curiosidades</h2>
+            
+            <div class="timeline mt-5">
+                <!-- Item 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-book me-2"></i>Orígenes Antiguos</h3>
+                        <p>El uso de plantas medicinales se remonta a la prehistoria, con evidencia arqueológica que muestra su uso por neandertales hace 60,000 años. Las civilizaciones antiguas como los sumerios (5000 a.C.) dejaron registros escritos de usos medicinales de plantas como el tomillo y el laurel.</p>
+                        <p>El papiro Ebers (1550 a.C.), uno de los tratados médicos más antiguos de Egipto, describe más de 700 fórmulas a base de plantas como aloe, ajo y opio. En la misma época, en China se compiló el "Shennong Bencao Jing", catalogando 365 plantas medicinales.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-university me-2"></i>Grecia y Roma</h3>
+                        <p>Hipócrates (460-377 a.C.), el "padre de la medicina", catalogó más de 300 plantas medicinales y estableció los fundamentos de la medicina herbal occidental. Dioscórides, médico griego del siglo I d.C., escribió "De Materia Medica", obra que durante 1500 años fue la principal referencia en plantas medicinales.</p>
+                        <p>Los romanos expandieron este conocimiento por Europa, introduciendo plantas como la menta, el romero y la salvia en nuevos territorios. Galeno (129-216 d.C.) desarrolló un sistema de clasificación de plantas medicinales que perduró hasta el Renacimiento.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-monument me-2"></i>Edad Media</h3>
+                        <p>Durante la Edad Media, los monasterios europeos preservaron y cultivaron plantas medicinales, creando los primeros "jardines botánicos". Las abadesas Hildegarda de Bingen (1098-1179) y Trotula de Salerno escribieron importantes tratados sobre herbolaria.</p>
+                        <p>Mientras tanto, en el mundo islámico, Avicena (980-1037) compiló el "Canon de Medicina", que incluía cientos de plantas medicinales. En América, las civilizaciones precolombinas desarrollaron avanzados conocimientos herbarios, como los aztecas con su códice Badiano (1552).</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-microscope me-2"></i>Renacimiento y Ciencia Moderna</h3>
+                        <p>El Renacimiento vio un resurgimiento del interés por la herbolaria, con obras como el "Herbario" de Fuchs (1542) y los trabajos de Paracelso, quien introdujo el concepto de principios activos. En el siglo XVIII, Linneo desarrolló el sistema de clasificación botánica que aún usamos.</p>
+                        <p>El siglo XIX marcó el inicio de la farmacología moderna, con el aislamiento de los primeros principios activos: morfina (1804), quinina (1820), aspirina (1897). Muchos fármacos modernos derivan de plantas: la digitalina (dedalera), la vincristina (vinca), el taxol (tejo).</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-globe-americas me-2"></i>Etnobotánica y Medicina Tradicional</h3>
+                        <p>En el siglo XX, la etnobotánica emergió como ciencia que estudia las relaciones entre pueblos y plantas. Investigadores como Richard Schultes documentaron el uso de plantas por indígenas amazónicos, revelando medicinas como la curare y plantas psicotrópicas usadas ritualmente.</p>
+                        <p>Hoy, la OMS estima que el 80% de la población mundial depende de la medicina tradicional para atención primaria de salud. Países como China e India han integrado exitosamente medicina tradicional y occidental en sus sistemas de salud.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-dna me-2"></i>Investigación Actual</h3>
+                        <p>La ciencia moderna sigue descubriendo compuestos medicinales en plantas. Ejemplos recientes incluyen la artemisinina (Artemisia annua) para malaria, y el paclitaxel (Taxus brevifolia) para cáncer. La biotecnología permite producir estos compuestos de forma sostenible.</p>
+                        <p>Simultáneamente, hay un resurgimiento del interés por plantas comestibles tradicionales y "superalimentos" como la quinoa, la chía y la moringa, ricos en nutrientes y compuestos beneficiosos. La agroecología promueve el cultivo sostenible de estas plantas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="text-center"><i class="fas fa-landmark me-2"></i>Plantas en la Cultura</h3>
+                            <p>Las plantas medicinales y comestibles han dejado una profunda huella en la cultura humana. En el arte, desde los frescos egipcios hasta las pinturas de Frida Kahlo, las plantas han sido símbolos de vida, curación y conexión con la naturaleza.</p>
+                            <p>En la literatura, obras como "Romeo y Julieta" mencionan plantas como la mandrágora y la belladona. Los herbarios medievales eran verdaderas obras de arte, con ilustraciones detalladas de plantas. Hoy, festivales como la Feria de las Hierbas en Provence celebran esta herencia cultural.</p>
+                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Plantas en el arte" class="img-fluid rounded mt-3">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="text-center"><i class="fas fa-lightbulb me-2"></i>Datos Curiosos</h3>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded h-100">
+                                        <h5><i class="fas fa-pills me-2" style="color: var(--morado-planta);"></i>Medicina Moderna</h5>
+                                        <p>El 25% de los medicamentos modernos derivan directamente de plantas, y otro 25% son versiones sintéticas de compuestos vegetales.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded h-100">
+                                        <h5><i class="fas fa-utensils me-2" style="color: var(--naranja-planta);"></i>Biodiversidad</h5>
+                                        <p>Se estima que existen unas 50,000-70,000 plantas medicinales en el mundo, pero solo el 15% han sido estudiadas científicamente.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded h-100">
+                                        <h5><i class="fas fa-heart me-2" style="color: var(--rojo-planta);"></i>Plantas Comestibles</h5>
+                                        <p>A lo largo de la historia, los humanos han usado unas 7,000 especies como alimento, pero hoy el 90% de nuestra dieta proviene de solo 15 plantas.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded h-100">
+                                        <h5><i class="fas fa-bolt me-2" style="color: var(--amarillo-planta);"></i>Sabiduría Indígena</h5>
+                                        <p>Los pueblos indígenas, que constituyen el 5% de la población mundial, protegen el 80% de la biodiversidad planetaria, incluyendo plantas medicinales.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultivo Section -->
+        <section id="cultivo" class="my-5 py-5">
+            <h2 class="section-title text-center">Guía de Cultivo y Recolección</h2>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3><i class="fas fa-seedling me-2" style="color: var(--verde-oscuro);"></i>Cultivo de Plantas Medicinales</h3>
+                            <p>Sigue estos consejos para cultivar con éxito tus propias plantas medicinales:</p>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h5>Elección de Especies</h5>
+                                    <p>Selecciona plantas adaptadas a tu clima. Comienza con especies fáciles como manzanilla, menta, caléndula o albahaca. Considera el espacio disponible (algunas necesitan macetas grandes).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h5>Preparación del Suelo</h5>
+                                    <p>La mayoría prefiere suelos bien drenados con materia orgánica. Prepara el terreno removiendo piedras y raíces, y añadiendo compost. El pH ideal varía según la especie (6-7 para la mayoría).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h5>Siembra y Plantación</h5>
+                                    <p>Algunas se siembran directo (caléndula), otras necesitan semillero (equinácea). Sigue las instrucciones de profundidad y distancia entre plantas. La mejor época varía según la especie y clima.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <h5>Riego y Mantenimiento</h5>
+                                    <p>Riega según necesidades de cada planta (la mayoría prefieren suelo húmedo pero no encharcado). Controla malezas competidoras. Usa acolchado orgánico para conservar humedad.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <h5>Cosecha y Secado</h5>
+                                    <p>Cosecha en la mañana después de que se evapore el rocío. Para hierbas, justo antes de la floración. Seca en lugar ventilado, oscuro y seco. Almacena en frascos oscuros en lugar fresco.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h3><i class="fas fa-cut me-2" style="color: var(--verde-medio);"></i>Recolección Sostenible</h3>
+                            <p>Si recolectas plantas silvestres, sigue estos principios de sostenibilidad:</p>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h5>Identificación Correcta</h5>
+                                    <p>Asegúrate al 100% de la identidad de la planta. Usa guías confiables y consulta con expertos. Muchas plantas tóxicas se parecen a las medicinales.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h5>Época Adecuada</h5>
+                                    <p>Recolecta en el momento óptimo: hojas antes de la floración, flores recién abiertas, raíces en otoño o primavera. Evita plantas mojadas por lluvia o rocío.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h5>Técnicas de Recolección</h5>
+                                    <p>Usa tijeras limpias para cortar, no arranques. Toma solo lo necesario (nunca más del 10-20% de una población). Para plantas en riesgo, recolecta semillas para propagar.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <h5>Conservación</h5>
+                                    <p>Procesa rápidamente después de recolectar. Seca en condiciones óptimas para preservar principios activos. Almacena adecuadamente para evitar moho y pérdida de potencia.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cultivo-step">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <h5>Legislación</h5>
+                                    <p>Respeta áreas protegidas y regulaciones locales. Algunas plantas están en peligro o protegidas por ley. Obtén permisos si es necesario.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3><i class="fas fa-bug me-2" style="color: #8e44ad;"></i>Problemas Comunes y Soluciones</h3>
+                            <p>Al cultivar plantas medicinales y comestibles puedes enfrentar estos problemas:</p>
+                            
+                            <div class="accordion" id="problemasAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            <i class="fas fa-leaf me-2" style="color: var(--verde-oscuro);"></i>Plantas que no prosperan
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#problemasAccordion">
+                                        <div class="accordion-body">
+                                            <p><strong>Causas:</strong> Suelo inadecuado, exceso o falta de agua, luz incorrecta, clima no apropiado.</p>
+                                            <p><strong>Solución:</strong> Investiga necesidades específicas de cada planta. Mejora el suelo con compost. Ajusta riego según necesidades. Considera cultivo en macetas para controlar condiciones.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            <i class="fas fa-skull-crossbones me-2" style="color: #c0392b;"></i>Plagas y enfermedades
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#problemasAccordion">
+                                        <div class="accordion-body">
+                                            <p><strong>Causas:</strong> Hongos, insectos, ácaros, bacterias o virus. A menudo por exceso de humedad o plantas débiles.</p>
+                                            <p><strong>Solución:</strong> Prevención con rotación de cultivos y plantas saludables. Remedios naturales: jabón potásico, aceite de neem, infusión de ajo. Retira partes afectadas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            <i class="fas fa-paw me-2" style="color: #7f8c8d;"></i>Daño por animales
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#problemasAccordion">
+                                        <div class="accordion-body">
+                                            <p><strong>Causas:</strong> Conejos, ciervos, pájaros, caracoles y babosas que se alimentan de plantas.</p>
+                                            <p><strong>Solución:</strong> Barreras físicas (mallas, cercas). Plantas repelentes (ajo, menta). Remedios caseros (cáscaras de huevo trituradas para babosas). Protección con túneles o invernaderos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                            <i class="fas fa-virus me-2" style="color: #f39c12;"></i>Baja potencia medicinal
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#problemasAccordion">
+                                        <div class="accordion-body">
+                                            <p><strong>Causas:</strong> Cultivo en condiciones subóptimas, cosecha en momento incorrecto, secado o almacenamiento inadecuado.</p>
+                                            <p><strong>Solución:</strong> Asegura condiciones de cultivo ideales. Cosecha en momento óptimo (generalmente antes de floración para hojas). Seca rápidamente a temperatura adecuada (35-40°C). Almacena en oscuridad.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                            <i class="fas fa-wind me-2" style="color: #3498db;"></i>Invasividad de algunas especies
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#problemasAccordion">
+                                        <div class="accordion-body">
+                                            <p><strong>Causas:</strong> Algunas plantas medicinales como la menta o el diente de león pueden volverse invasivas.</p>
+                                            <p><strong>Solución:</strong> Cultiva especies invasivas en macetas o con barreras subterráneas. Controla regularmente su expansión. Considera alternativas menos invasivas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3><i class="fas fa-clipboard-list me-2" style="color: #16a085;"></i>Calendario de Siembra y Cosecha</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Época</th>
+                                            <th>Tareas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Primavera temprana</td>
+                                            <td>Siembra de especies resistentes al frío (valeriana, equinácea). Preparación del suelo.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Primavera</td>
+                                            <td>Siembra de la mayoría de hierbas (manzanilla, menta, albahaca). Trasplante de plántulas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Verano</td>
+                                            <td>Cosecha de hojas antes de floración. Riego regular. Control de plagas. Siembra de cultivos de otoño.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otoño</td>
+                                            <td>Cosecha de raíces (equinácea, valeriana). Recolección de semillas. Plantación de bulbos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invierno</td>
+                                            <td>Planificación del jardín. Siembra en interiores. Mantenimiento de herramientas. Protección de plantas perennes.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h3><i class="fas fa-home me-2" style="color: var(--naranja-planta);"></i>Cultivo en Interiores</h3>
+                            <p>Muchas plantas medicinales y comestibles pueden cultivarse en interiores:</p>
+                            <ol>
+                                <li>Elige plantas adecuadas: menta, albahaca, orégano, tomillo, perejil, cebollino, aloe vera.</li>
+                                <li>Proporciona suficiente luz: ventana sur o este, o luces de cultivo 12-16 horas/día.</li>
+                                <li>Usa macetas con buen drenaje y tierra para macetas de calidad.</li>
+                                <li>Riega cuando la superficie del suelo esté seca al tacto. Evita encharcamientos.</li>
+                                <li>Fertiliza moderadamente con abono orgánico líquido cada 2-4 semanas.</li>
+                                <li>Controla plagas con métodos naturales (agua jabonosa, aceite de neem).</li>
+                            </ol>
+                            <p class="mt-3"><strong>Beneficios:</strong> Acceso fresco todo el año, control de condiciones, decoración viviente, aromaterapia natural.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h3 class="text-center"><i class="fas fa-comments me-2"></i>Preguntas Frecuentes</h3>
+                    <div class="accordion mt-4" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeadingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne">
+                                    ¿Cómo sé si una planta silvestre es comestible?
+                                </button>
+                            </h2>
+                            <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Nunca consumas una planta silvestre a menos que estés 100% seguro de su identificación. Sigue estas pautas:</p>
+                                    <ol>
+                                        <li>Aprende con un experto o guía confiable</li>
+                                        <li>Identifica usando múltiples características (hojas, flores, tallo, aroma)</li>
+                                        <li>Prueba la "prueba de contacto": frota una pequeña parte en la piel y espera 24 horas</li>
+                                        <li>Si no hay reacción, prueba un trozo pequeño y espera 8 horas</li>
+                                        <li>Evita plantas con savia lechosa, almendras amargas, o que huelan a almendras (pueden contener cianuro)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeadingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo">
+                                    ¿Puedo usar plantas medicinales junto con medicamentos?
+                                </button>
+                            </h2>
+                            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Algunas plantas pueden interactuar con medicamentos, potenciando o disminuyendo sus efectos. Ejemplos comunes:</p>
+                                    <ul>
+                                        <li>Hierba de San Juan: reduce efectividad de anticonceptivos y antidepresivos</li>
+                                        <li>Ginkgo biloba: puede aumentar sangrado con anticoagulantes</li>
+                                        <li>Regaliz: puede elevar la presión arterial</li>
+                                        <li>Kava kava: potencia efectos de sedantes</li>
+                                    </ul>
+                                    <p class="mt-2">Siempre consulta con un profesional de la salud antes de combinar plantas con medicamentos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeadingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree">
+                                    ¿Cómo preparo correctamente una infusión medicinal?
+                                </button>
+                            </h2>
+                            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Para preparar una infusión medicinal efectiva:</p>
+                                    <ol>
+                                        <li>Usa 1 cucharadita de hierba seca o 2 de fresca por taza (250ml)</li>
+                                        <li>Calienta agua hasta justo antes de hervir (85-95°C)</li>
+                                        <li>Vierte el agua sobre las hierbas en un recipiente no metálico</li>
+                                        <li>Tapa y deja infusionar 5-15 minutos (hojas/flores menos tiempo, raíces/cortezas más)</li>
+                                        <li>Cuela y bebe caliente. Endulza con miel si deseas</li>
+                                        <li>Consume recién preparada para máxima potencia</li>
+                                    </ol>
+                                    <p class="mt-2">Nota: Algunas plantas requieren decocción (hervir) para extraer sus principios activos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeadingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour">
+                                    ¿Qué plantas son seguras para niños y embarazadas?
+                                </button>
+                            </h2>
+                            <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Para niños:</strong> Manzanilla (digestión), menta suave (náuseas), caléndula (uso tópico), tilo (nerviosismo). Usar dosis reducidas según peso.</p>
+                                    <p><strong>Para embarazadas:</strong> Jengibre (náuseas), hojas de frambuesa (último trimestre), manzanilla (moderación), diente de león (nutritivo).</p>
+                                    <p class="mt-2"><strong>Evitar en embarazo:</strong> Ruda, artemisa, poleo, salvia, hierba de San Juan, grandes cantidades de menta.</p>
+                                    <p>Siempre consultar con profesional de la salud antes de usar plantas medicinales en estos casos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3><i class="fas fa-leaf me-2"></i>Plantas Medicinales y Comestibles</h3>
+                    <p class="mt-3">Explora el fascinante mundo de las plantas con nosotros. Suscríbete para recibir información sobre usos tradicionales, consejos de cultivo y noticias sobre plantas beneficiosas.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-pinterest-p fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#medicinales" class="text-white text-decoration-none">Plantas Medicinales</a></li>
+                        <li class="mb-2"><a href="#comestibles" class="text-white text-decoration-none">Plantas Comestibles</a></li>
+                        <li class="mb-2"><a href="#historia" class="text-white text-decoration-none">Historia</a></li>
+                        <li><a href="#cultivo" class="text-white text-decoration-none">Guía de Cultivo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Newsletter</h3>
+                    <p class="mt-3">Suscríbete para recibir consejos y novedades sobre plantas medicinales y comestibles directamente en tu correo.</p>
+                    <form class="mt-4">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <button type="submit" class="btn btn-planta">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2023 Plantas Medicinales y Comestibles. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Diseñado con <i class="fas fa-heart text-danger"></i> para amantes de la naturaleza</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)' !important;
+                navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.9)' !important;
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
